@@ -54,6 +54,7 @@ module laserdistancefsmd(input wire clk,
 		nextstate   = S3;
              end
            S4: nextstate = S1;
+           deafult: nextstate = S0;
 	 endcase
       end
    
