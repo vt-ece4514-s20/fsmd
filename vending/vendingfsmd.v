@@ -101,6 +101,9 @@ module vendingfsm(input  wire  rst,
                next_state = SInit;
 	    end
 	  
+	  default:
+	  	next_state = SInit;
+	  	
 	endcase
      end
    
