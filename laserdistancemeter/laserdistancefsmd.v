@@ -28,10 +28,12 @@ module laserdistancefsmd(input wire clk,
 	 Lctl      = 1'b0;
 	 nextstate = S0;
 	 case (state)
+	   
            S0: begin
               Qclr      = 1'b1;
               nextstate = S1;
            end
+	   
            S1: if (B) 
              begin
                 Lctl       = 1'b1;
@@ -42,7 +44,9 @@ module laserdistancefsmd(input wire clk,
                 Dclr       = 1'b1;
                 nextstate  = S1;
              end
+	   
            S2: nextstate = S3;
+	   
            S3: if (S)
              begin
 		Qupd        = 1'b1;
@@ -53,8 +57,11 @@ module laserdistancefsmd(input wire clk,
 		Dinc        = 1'b1;
 		nextstate   = S3;
              end
+
            S4: nextstate = S1;
-           deafult: nextstate = S0;
+	   
+           default: nextstate = S0;
+	   
 	 endcase
       end
    
